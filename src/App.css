@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+:root {
+  --bg: #0b0e11;
+  --card: #151a21;
+  --primary: #facc15; /* Gold */
+  --accent: #3b82f6; /* Blue */
+  --danger: #ef4444;
+  --success: #10b981;
+  --text: #e2e8f0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* NAVBAR */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: var(--card);
+  padding: 15px 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 1px solid #2d3748;
+}
+
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+.nav-links button {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 15px;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.nav-links button.active {
   color: white;
+  border-bottom: 2px solid var(--primary);
 }
 
-.App-link {
-  color: #61dafb;
+.wallet-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wallet-btn.connected { background: #1e293b; border: 1px solid var(--accent); }
+
+/* CARDS & LAYOUT */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
 }
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #2d3748;
+  margin-bottom: 20px;
+}
+
+h2, h3 { margin-top: 0; }
+.subtitle { color: #94a3b8; margin-bottom: 20px; }
+.green { color: var(--success); }
+
+/* FORMS */
+.input-group { margin-bottom: 15px; }
+.input-wrapper {
+  display: flex;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.unit { padding: 10px; color: #64748b; font-weight: bold; align-self: center; }
+
+button[type="submit"] {
+  width: 100%;
+  background: var(--primary);
+  color: black;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* HEALTH BAR */
+.health-indicator {
+  padding: 10px;
+  background: #1e293b;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.health-indicator.safe { color: var(--success); border: 1px solid var(--success); }
+.health-indicator.danger { color: var(--danger); border: 1px solid var(--danger); }
+
+/* INVOICE SPECIFIC */
+.invoice-container { max-width: 600px; margin: 0 auto; }
+.big-balance { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
+
+.invoice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--accent);
+}
+
+.invoice-item.paid { border-left-color: var(--success); opacity: 0.6; }
+.pay-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.badge.paid { color: var(--success); font-weight: bold; }
